@@ -1,0 +1,1 @@
+python3 -u style.py train --style-image rough.png --dataset /home/kunato/disk/coco/ --gpu 0 --visualize 1

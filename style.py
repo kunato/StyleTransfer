@@ -174,18 +174,18 @@ def train(args):
                     testImage_amber).cpu()
                 amber_path = "visualization/%s/amber_%d_%05d.jpg" % (
                     style_name, e+1, batch_num+1)
-                utils.save_image(amber_path, outputTestImage_amber.item())
+                utils.save_image(amber_path, outputTestImage_amber.data)
 
                 outputTestImage_dan = image_transformer(testImage_dan).cpu()
                 dan_path = "visualization/%s/dan_%d_%05d.jpg" % (
                     style_name, e+1, batch_num+1)
-                utils.save_image(dan_path, outputTestImage_dan.item())
+                utils.save_image(dan_path, outputTestImage_dan.data)
 
                 outputTestImage_maine = image_transformer(
                     testImage_maine).cpu()
                 maine_path = "visualization/%s/maine_%d_%05d.jpg" % (
                     style_name, e+1, batch_num+1)
-                utils.save_image(maine_path, outputTestImage_maine.item())
+                utils.save_image(maine_path, outputTestImage_maine.data)
 
                 print("images saved")
                 image_transformer.train()
@@ -235,7 +235,7 @@ def style_transfer(args):
 
     # process input image
     stylized = style_model(content).cpu()
-    utils.save_image(args.output, stylized.item())
+    utils.save_image(args.output, stylized.data)
 
 
 def main():
